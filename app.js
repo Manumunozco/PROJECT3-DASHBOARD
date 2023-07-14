@@ -196,40 +196,44 @@ alert("hola mundo")
         const datoInput = input.value;
         const datoInputDos = inputDos.value;
         const respuestaApi = await fetch(url + datoInput);
-        const respuestaApiDos = await fetch(url + datoInputDos);
+        let datosApiDos;
+        if (datoInputDos !== ""){
+            const respuestaApiDos = await fetch(url + datoInputDos);
+            datosApiDos = await respuestaApiDos.json();
+        }
         const datosApi = await respuestaApi.json();
-        const datosApiDos = await respuestaApiDos.json();
         console.log(datosApi.serie);
-        console.log(datosApiDos.serie);
-        const datosUnidos = unirDatos(datosApi.serie, datosApiDos.serie);
-        if (datosUnidos.length > 0) {
-        crearGraficoUno(datosUnidos);
+        // const datosUnidos = unirDatos(datosApi.serie, datosApiDos.serie);
+    //     if (datosUnidos.length > 0) {
+    //     crearGraficoUno(datosUnidos);
 
-    } else {
-        console.log("No se encontraron datos para las divisas seleccionadas")
-    }
+    // } else {
+    //     console.log("No se encontraron datos para las divisas seleccionadas")
+    // }
+    crearGraficoUno (datosApi.serie, datosApiDos?.serie)
+
 }
     boton.addEventListener("click", peticion);
     
     let graficoUno;
     
-    const unirDatos = (datosUno, datosDos) => {
-        const datosUnidos = [];
-        if (datosUno && datosDos && datosUno.length === datosDos.lenght) {
-        const minLength = datosUno.lenght;
-        for (let i = 0; i < minLength; i++) {
-            const datoUnido = {
-                fecha: datosUno[i].fecha,
-                valorUno: datosUno[i].valor,
-                valorDos: datosDos[i].valor
-            };
-            datosUnidos.push(datoUnido);
-        }
-    }
-        return datosUnidos;
-    }
+    // const unirDatos = (datosUno, datosDos) => {
+    //     const datosUnidos = [];
+    //     if (datosUno && datosDos && datosUno.length === datosDos.lenght) {
+    //     const minLength = datosUno.lenght;
+    //     for (let i = 0; i < minLength; i++) {
+    //         const datoUnido = {
+    //             fecha: datosUno[i].fecha,
+    //             valorUno: datosUno[i].valor,
+    //             valorDos: datosDos[i].valor
+    //         };
+    //         datosUnidos.push(datoUnido);
+    //     }
+    // }
+    //     return datosUnidos;
+    // }
     
-    const crearGraficoUno = (datos) => {
+    const crearGraficoUno = (datosUno = [], datosDos = []) => {
         if (graficoUno) {
             graficoUno.destroy();
         }
@@ -237,13 +241,13 @@ alert("hola mundo")
         graficoUno = new Chart(canvasUno, {
             type: "line",
             data: {
-                labels: datos.reverse().map((registro) => registro.fecha),
+                labels: datosUno.reverse().map((registro) => registro.fecha),
                 datasets: [{
                     label: "Valor Uno",
-                    data: datos.map((registro) => registro.valorUno)
+                    data: datosUno.map((registro) => registro.valor)
                 }, {
                     label: "Valor Dos",
-                    data: datos.map((registro) => registro.valorDos)
+                    data: datosDos.map((registro) => registro.valor)
                 }]
             }
         });

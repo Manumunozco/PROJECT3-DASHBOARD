@@ -161,12 +161,14 @@
 //             })
 //         }
     
+const crearGraficoUno = require("./crearGrafico.js")
+
 alert("hola mundo")
     const boton = document.getElementById("boton");
     const botonDos = document.getElementById("botonDos");
     const input = document.getElementById("inputtext");
     const inputDos = document.getElementById("inputtextDos");
-    const canvasUno = document.getElementById("graficoUno");
+    const conector = document.getElementById("conector-selectores");
     
     const obtenerDivisasDisponibles = async () => {
         const url = "https://mindicador.cl/api/";
@@ -184,7 +186,7 @@ alert("hola mundo")
             botonDivisa.addEventListener("click", () => {
                 input.value = divisa;
             });
-            document.body.appendChild(botonDivisa);
+            (botonDivisa);
         });
     }
     
@@ -195,6 +197,10 @@ alert("hola mundo")
         const url = "https://mindicador.cl/api/";
         const datoInput = input.value;
         const datoInputDos = inputDos.value;
+        if (datoInput === datoInputDos){
+            alert("Las divisas seleccionadas son iguales, por favor selecciona una divisa diferente.");
+            return;
+        }
         const respuestaApi = await fetch(url + datoInput);
         let datosApiDos;
         if (datoInputDos !== ""){
@@ -210,12 +216,12 @@ alert("hola mundo")
     // } else {
     //     console.log("No se encontraron datos para las divisas seleccionadas")
     // }
-    crearGraficoUno (datosApi.serie, datosApiDos?.serie)
+    crearGraficoUno (datosApi?.serie, datosApiDos?.serie)
 
 }
     boton.addEventListener("click", peticion);
     
-    let graficoUno;
+   
     
     // const unirDatos = (datosUno, datosDos) => {
     //     const datosUnidos = [];
@@ -232,24 +238,4 @@ alert("hola mundo")
     // }
     //     return datosUnidos;
     // }
-    
-    const crearGraficoUno = (datosUno = [], datosDos = []) => {
-        if (graficoUno) {
-            graficoUno.destroy();
-        }
-    
-        graficoUno = new Chart(canvasUno, {
-            type: "line",
-            data: {
-                labels: datosUno.reverse().map((registro) => registro.fecha),
-                datasets: [{
-                    label: "Valor Uno",
-                    data: datosUno.map((registro) => registro.valor)
-                }, {
-                    label: "Valor Dos",
-                    data: datosDos.map((registro) => registro.valor)
-                }]
-            }
-        });
-    }
     

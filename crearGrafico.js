@@ -1,6 +1,7 @@
 
 
-const canvasUno = document.getElementById("graficoUno");
+
+export const canvasUno = document.getElementById("graficoUno");
 
 let graficoUno;
 
@@ -25,4 +26,5 @@ const crearGraficoUno = (datosUno = [], datosDos = []) => {
     });
 }
 
-module.exports = crearGraficoUno
+
+// module.exports = crearGraficoUno

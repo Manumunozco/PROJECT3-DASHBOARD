@@ -1,14 +1,13 @@
-DASHBOARD-API
+# DASHBOARD - API
 
 Description
 
-This project created based on JavaScript, also using HTML5 and CSS.
-In this second project, we created a website using the 4 CRUD operations, a process to manipulate our data, specifically, a list of tasks, where we can create, read, update and delete information.
-In addition, we can save our data in local storage, using DOM object structures, among other JS functions.
+In this third project, the main tool is to consume APIS, with a base of HTML5, JavaScript and Css for the styles. Particularly, this web page allows us to compare international currencies, in addition, printing the data in a graph used via Chart.js and canvas, in the functions for data consumption we use fetch and async await. We work on this project in a modular way, importing and exporting data between files.
+Finally, the project was created on Git hub as a repository. Also, to creating a web page via Netlify.
 
 Visual
 
-<a href="#start"><img id="" src="Assets\Img\image.png" alt="visual"></a>
+![DASHBOARD-WEB](Put img)
 
 Starting
 
@@ -28,19 +27,19 @@ For a correct installation, follow the steps below:
 
     - Clone the project in Github.
 
-        git@github.com:Manumunozco/AIR-UDD.git
+        git@github.com:Manumunozco/PROJECT3-DASHBOARD.git
 
     - Go to the project directory.
 
-        cd AIR-UDD.git
+        cd PROJECT3-DASHBOARD.git
 
     - Open the Index.html file in your browser.
 
 How to use it
 
-To run tests in the browser is very simple, it is not an automated page, the data must be entered manually. That is, type the information in the boxes that are requested.
+To run tests in the browser is very simple, it is not an automated page, the data must be entered manually. That is, type the information in the boxes that are requested, just enter the currencies you want to compare and press submit.
 
-The task manager allows us to enter the information, save it and read it in our browser. Also, we can edit it and remove incorrect information or information that does not seem necessary.
+After that, you will be able to observe the value of the currencies on their different dates, both in the same graph to see their differences.
 
 Elaboration
 
@@ -49,21 +48,17 @@ At this time the tools used in this project are detailed below:
     - HTLM 5
     - CSS
     - JavaScript
-    - Dom
-    - Local storage
+    - Chart.js
+    - fetch
+    - async-await
     - ReadMe
 
 Contribution
 
-This is my second project, so if you think I need to improve something or if you have an idea to develop, just write me or make your pull request directly.
+This is my third project, so, same like my others projects, if you think I need to improve something or if you have an idea to develop, just write me or make your pull request directly.
 
 Thanks
 
-    1.- Special thanks to our coach, Brayan Diaz C, https://github.com/brayandiazc, who was in charge of teaching us and delivering the tools.
-    2.- And to our coach Jonathan Araya for his help with advice and consultations.
-
-    3.- Photo by <a href="https://unsplash.com/@cyrus_smith?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Marc Thunis</a> on <a href="https://unsplash.com/photos/3UY5DMqdJ7o?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-
+    1.- Thanks to the API "https://mindicador.cl/api/", for providing the information and data for this project.
 
 CREATED BY MANUEL MUNOZ CONEJEROS
-

@@ -1,7 +1,7 @@
     
-const crearGraficoUno = require("./crearGrafico.js")
+// const crearGraficoUno = require("./crearGrafico.js")
 
-// import {canvasUno} from "./crearGrafico.js"
+import {crearGraficoUno} from "./crearGrafico.js"
 
 console.log(crearGraficoUno)
 

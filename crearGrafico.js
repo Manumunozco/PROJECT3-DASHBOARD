@@ -1,6 +1,3 @@
-
-
-
 const canvasUno = document.getElementById("graficoUno");
 
 let graficoUno;
@@ -25,6 +22,3 @@ export const crearGraficoUno = (datosUno = [], datosDos = []) => {
         }
     });
 }
-
-
-// module.exports = crearGraficoUno
